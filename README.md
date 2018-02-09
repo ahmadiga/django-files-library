@@ -1,6 +1,6 @@
-# django generator
+# django library
 
-django generator is a small code generator to generate basic functionality of websites
+django library is file management django app with user permissions and file download layer
 
 
 ## Installation
