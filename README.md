@@ -19,4 +19,4 @@ To render library user the following template tags:
 1.```{% render_library <library object> %}```:to render a full view of the library
 2.```{% render_library_list <library object> %}```:to render files list only
 
-###TBD
+### TBD
