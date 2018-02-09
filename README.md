@@ -11,6 +11,7 @@ django generator is a small code generator to generate basic functionality of we
 ## Configurations
 DJANGO_LIBRARY_ADD_FILE_FORM_CLASS
 A string pointing to a custom form class (e.g. ‘myapp.forms.AddFileForm’) that is used during adding new file.
+
 DJANGO_LIBRARY_INLINE_FORM Boolean flag to display upload file form to the list or display it in a separate page
 
 ## Render library
