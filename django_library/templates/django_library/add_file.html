@@ -1,0 +1,8 @@
+{% extends request.is_ajax|yesno:"django_library/django_library_empty.html,django_library/django_library_base.html" %}
+{% block library_content %}
+    <div class="container">
+        <div class="col-12">
+            {% include "django_library/library_form.html" %}
+        </div>
+    </div>
+{% endblock %}

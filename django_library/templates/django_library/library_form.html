@@ -1,0 +1,63 @@
+<div class="django_library_form_holder">
+    <form method="post" id="django_library_file_form" enctype="multipart/form-data"
+          action="{% url "django_library_add_file" library.id %}">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit" class="btn btn-primary">Add File</button>
+    </form>
+</div>
+{% if request.is_ajax or inline_form %}
+    <script>
+        var checker = 0;
+        function jqueryLoaded() {
+            function upload(event) {
+                event.preventDefault();
+                var _form = $(this);
+                var data2 = new FormData(this);
+                console.log(data2);
+                $.ajax({
+                    url: $(this).attr('action'),
+                    type: $(this).attr('method'),
+                    data: data2,
+                    cache: false,
+                    processData: false,
+                    contentType: false,
+                    success: function (data) {
+                        if (data.file_list_html) {
+                            $(".django-library-{{ library.id }}").html(data.file_list_html);
+                            $success = $("<div class='alert alert-success' role='alert'>Added Successfully</div>");
+                            _form.parent().prepend($success);
+                            _form[0].reset()
+                            window.setTimeout(function clear_success_message() {
+                                $success.hide(500, function () {
+                                    $success.remove()
+                                })
+                            }, 5000);
+                        } else {
+                            _form.parent().html($(data).find("form"))
+                        }
+                    }
+                });
+                return false;
+            }
+
+            $(function () {
+                $('#django_library_file_form').submit(upload);
+            });
+            clearInterval(checker);
+            //alert('jQuery is loaded, sire!');
+        }
+
+        function checkJquery() {
+            if (window.jQuery) {
+                jqueryLoaded();
+            }
+            if (checker == 0) {
+                //alert('Setting up interval');
+                checker = window.setInterval(checkJquery, 100);
+            }
+        }
+
+        checkJquery();
+    </script>
+{% endif %}

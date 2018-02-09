@@ -1,0 +1,21 @@
+{% extends "layout/layout.html" %}
+{% load i18n %}
+{% load static %}
+{% block base_css %}
+    <link rel="stylesheet" href="{% static "django_library/css/common.scss" %}" type="text/scss" charset="utf-8">
+    {% block css %}
+
+    {% endblock %}
+{% endblock %}
+{% block layout_content %}
+    {% block content %}
+
+    {% endblock %}
+{% endblock %}
+
+{% block base_js %}
+    <script src="{% static "django_library/js/scripts.js" %}" type="text/javascript" charset="utf-8"></script>
+    {% block js %}
+
+    {% endblock %}
+{% endblock %}
