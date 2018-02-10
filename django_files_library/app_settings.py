@@ -10,14 +10,14 @@ class AppSettings(object):
         return getter(self.prefix + name, dflt)
 
     @property
-    def ADD_FILE_FORM_CLASS(self):
+    def add_file_form_class(self):
         """
         Add file form
         """
         return self._setting("ADD_FILE_FORM_CLASS", None)
 
     @property
-    def INLINE_FORM(self):
+    def inline_form(self):
         """
         Add file form
         """

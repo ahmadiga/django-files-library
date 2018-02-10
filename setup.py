@@ -10,12 +10,11 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 setup(
     name='django-files-library',
     description='django files Library component',
-    version="0.01.03",
+    version="0.01.04",
     long_description=open('README.rst').read(),
     author='Ahmad Bazadough',
     author_email='ahmadiga1985@hotmail.com',
     url='https://github.com/ahmadiga/django-files-library',
-    download_url='https://github.com/ahmadiga/django-files-library/archive/0.01.tar.gz',
     package_dir={'django_files_library': 'django_files_library'},
     packages=find_packages(exclude='test_app'),
     include_package_data=True,

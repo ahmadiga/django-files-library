@@ -88,15 +88,15 @@ def get_add_form_class():
     get add file form from settings files
     :return: add file form class
     """
-    if not app_settings.ADD_FILE_FORM_CLASS:
+    if not app_settings.add_file_form_class:
         form_cls = FileForm
     else:
         try:
-            fc_module, fc_classname = app_settings.ADD_FILE_FORM_CLASS.rsplit('.', 1)
+            fc_module, fc_classname = app_settings.add_file_form_class.rsplit('.', 1)
         except ValueError:
             raise exceptions.ImproperlyConfigured('%s does not point to a form'
                                                   ' class'
-                                                  % app_settings.ADD_FILE_FORM_CLASS)
+                                                  % app_settings.add_file_form_class)
         try:
             mod = import_module(fc_module)
         except ImportError as e:

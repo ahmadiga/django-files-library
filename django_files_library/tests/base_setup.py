@@ -6,6 +6,18 @@ from django_files_library.models import Library, Permission, File
 
 
 class BaseSetupTestCase(TestCase):
+    def __init__(self):
+        self.user1 = None
+        self.user2 = None
+        self.user3 = None
+        self.user4 = None
+        self.public_library = None
+        self.private_library = None
+        self.permissions1 = None
+        self.mock_file = None
+        self.file1 = None
+        self.file2 = None
+
     def setUp(self):
         self.user1 = User.objects.create_user("user1", "user1@test.com", "asdasdasd")
         self.user2 = User.objects.create_user("user2", "user2@test.com", "asdasdasd")

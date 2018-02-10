@@ -20,7 +20,7 @@ def render_library(context, library):
     user = request.user
     can_view = library.user_can_read(user)
     can_add_edit = library.user_can_write(user)
-    inline_form = app_settings.INLINE_FORM
+    inline_form = app_settings.inline_form
     # load html template
     template_path = "django_files_library/full_library.html"
     t = loader.get_template(template_path)
