@@ -15,8 +15,8 @@ class Library(models.Model):
     created_on = models.DateTimeField(auto_now_add=True, verbose_name=_("Created On"))
 
     def user_can_read(self, user):
-        return self.is_public or library.permission_set.filter(
-            Q(Q(user=user) & Q(Q(access_level="O") | Q(access_level="R") | Q(access_level="W")))).exists()
+        return self.is_public or self.permission_set.filter(
+            Q(Q(user=user) & Q(Q(access_level="O") | Q(access_level="R")))).exists()
 
     def user_can_write(self, user):
         return self.permission_set.filter(

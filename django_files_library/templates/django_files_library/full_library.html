@@ -6,4 +6,4 @@
         <a href="{% url "django_files_library_add_file" library.id %}?next_url={{ request.path|urlencode }}">{% trans "Add" %}</a>
     {% endif %}
 {% endif %}
-{% include "django_library/library_listing.html" %}
+{% include "django_files_library/library_listing.html" %}
