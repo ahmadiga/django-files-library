@@ -1,8 +1,8 @@
 from django import template
 from django.template import loader
 
-from django_library import app_settings
-from django_library.forms import FileForm
+from django_files_library import app_settings
+from django_files_library.forms import FileForm
 
 register = template.Library()
 
@@ -22,7 +22,7 @@ def render_library(context, library):
     can_add_edit = library.user_can_write(user)
     inline_form = app_settings.INLINE_FORM
     # load html template
-    template_path = "django_library/full_library.html"
+    template_path = "django_files_library/full_library.html"
     t = loader.get_template(template_path)
     # prepare context
     context = {
@@ -54,7 +54,7 @@ def render_library_list(context, library):
     user = request.user
     can_view = library.user_can_read(user)
     can_add_edit = library.user_can_write(user)
-    template_path = "django_library/library_listing.html"
+    template_path = "django_files_library/library_listing.html"
     t = loader.get_template(template_path)
     context = {
         "library": library,

@@ -1,6 +1,6 @@
-<div class="django_library_form_holder">
-    <form method="post" id="django_library_file_form" enctype="multipart/form-data"
-          action="{% url "django_library_add_file" library.id %}">
+<div class="django_files_library_form_holder">
+    <form method="post" id="django_files_library_file_form" enctype="multipart/form-data"
+          action="{% url "django_files_library_add_file" library.id %}">
         {% csrf_token %}
         {{ form }}
         <button type="submit" class="btn btn-primary">Add File</button>
@@ -42,7 +42,7 @@
             }
 
             $(function () {
-                $('#django_library_file_form').submit(upload);
+                $('#django_files_library_file_form').submit(upload);
             });
             clearInterval(checker);
             //alert('jQuery is loaded, sire!');

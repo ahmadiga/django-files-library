@@ -9,11 +9,11 @@
                 </div>
                 <div class="col-4">
                     <a class="btn btn-success"
-                       href="{% url "django_library_download_file" file.id file.original_name %}" target="_blank"
-                       download="{% url "django_library_download_file" file.id file.original_name %}">{% trans "Download" %}</a>
+                       href="{% url "django_files_library_download_file" file.id file.original_name %}" target="_blank"
+                       download="{% url "django_files_library_download_file" file.id file.original_name %}">{% trans "Download" %}</a>
                     {% if can_add_edit %}
                         <a class="btn btn-danger"
-                           href="{% url "django_library_delete_file" file.id %}?next_url={{ next_page|urlencode }}">{% trans "Delete" %}</a>
+                           href="{% url "django_files_library_delete_file" file.id %}?next_url={{ next_page|urlencode }}">{% trans "Delete" %}</a>
                     {% endif %}
                     {{ can_add_edit }}
                 </div>

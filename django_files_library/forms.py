@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 
-from django_library.models import File
+from django_files_library.models import File
 
 
 class FileForm(ModelForm):

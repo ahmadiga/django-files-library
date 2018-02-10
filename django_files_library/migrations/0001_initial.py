@@ -3,7 +3,7 @@
 from django.conf import settings
 from django.db import migrations, models
 import django.db.models.deletion
-import django_library.tools
+import django_files_library.tools
 
 
 class Migration(migrations.Migration):
@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
             name='File',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('uploaded_file', models.FileField(upload_to=django_library.tools.unique_file_name)),
+                ('uploaded_file', models.FileField(upload_to=django_files_library.tools.unique_file_name)),
                 ('original_name', models.CharField(blank=True, max_length=255, null=True)),
                 ('name', models.CharField(blank=True, max_length=255, null=True)),
                 ('description', models.CharField(blank=True, max_length=255, null=True)),
@@ -42,13 +42,13 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created_on', models.DateTimeField(auto_now_add=True, verbose_name='Created On')),
                 ('access_level', models.CharField(choices=[('R', 'Read'), ('W', 'Write'), ('O', 'Owner')], max_length=1)),
-                ('library', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='django_library.Library')),
+                ('library', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='django_files_library.Library')),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.AddField(
             model_name='file',
             name='library',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='django_library.Library'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='django_files_library.Library'),
         ),
     ]

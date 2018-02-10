@@ -16,7 +16,7 @@ setup(
     author_email='ahmadiga1985@hotmail.com',
     url='https://github.com/ahmadiga/django-files-library',
     download_url='https://github.com/ahmadiga/django-files-library/archive/0.01.tar.gz',
-    package_dir={'django_library': 'django_library'},
+    package_dir={'django_files_library': 'django_files_library'},
     packages=find_packages(exclude='test_app'),
     include_package_data=True,
     classifiers=[

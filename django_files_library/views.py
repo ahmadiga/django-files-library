@@ -5,10 +5,10 @@ from django.http import HttpResponse, HttpResponseForbidden, HttpResponseRedirec
 from django.shortcuts import render, get_object_or_404
 from django.utils.encoding import smart_str
 
-from django_library import app_settings
-from django_library.forms import FileForm
-from django_library.models import File, Library
-from django_library.templatetags.django_library import render_library_list
+from django_files_library import app_settings
+from django_files_library.forms import FileForm
+from django_files_library.models import File, Library
+from django_files_library.templatetags.django_files_library import render_library_list
 
 
 def download_file(request, pk=None, name=None):
@@ -62,7 +62,7 @@ def add_file(request, library_id):
                 return JsonResponse(result)
             else:
                 return HttpResponseRedirect(next_page)
-        return render(request, "django_library/add_file.html", {"form": form, "library": library})
+        return render(request, "django_files_library/add_file.html", {"form": form, "library": library})
     else:
         return HttpResponseForbidden()
 
